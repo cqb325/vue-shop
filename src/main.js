@@ -35,6 +35,19 @@ history.clear()
 let historyCount = history.getItem('count') * 1 || 0
 history.setItem('/', 0)
 
+router.beforeEach(function(to, from, next){
+    console.log(to.path);
+    if(to.path === '/mine'){
+        if(store.state.app.user){
+            next();
+        }else{
+            window.location.href = '/login';
+        }
+    }else{
+        next();
+    }
+});
+
 router.beforeEach(function (to, from, next) {
   const toIndex = history.getItem(to.path)
   const fromIndex = history.getItem(from.path)

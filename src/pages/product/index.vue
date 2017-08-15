@@ -46,15 +46,70 @@
                     </ul>
                 </div>
                 <div class="tab-panel" v-show="tabIndex == 2">
-3
+                    <ul class="assess-list">
+                        <li class="assess-item">
+                            <Card>
+                                <div class='assess-title' slot='header'>
+                                    <span class="assess-photo">
+                                        <img src="https://img30.360buyimg.com/mobile/s60x60_jfs/t493/15/557644423/10532/62d3112/5473e62aNdb4251d8.png" />
+                                    </span>
+                                    <span>j****h</span>
+                                    <span class="pull-right assess-date">2017-07-01</span>
+                                </div>
+                                <p slot="content" class="assess-content">
+                                    这台一体机是我在众多电脑中最后选定的一台，首先说显示器的确很大，高清硬屏非常好，无论哪个角度都看的爽，其次是性能方面，还可以，虽然是集成显卡，但玩英雄联盟一点都不卡，FPS在80之间 温度方面 待机在52左右，看电影在62左右，玩游戏就72以上80以下，风扇很大声，听着都心疼，可能是集成显卡的问题吧，开机在10秒左右，很快，这也是固态硬盘的效果，内存方面，120G的确不多，很快就用完，所以自己加个移动硬盘 才勉强过的去，总之这台一体机是还不错的，不亚于联想一体，性价比高，一体机里面有个喇叭，虽然不是很好的，但勉强还能接受，这次购机还算满意，大家可以选这台。
+                                </p>
+                            </Card>
+                        </li>
+                        <li class="assess-item">
+                            <Card>
+                                <div class='assess-title' slot='header'>
+                                    <span class="assess-photo">
+                                        <img src="https://img30.360buyimg.com/mobile/s60x60_jfs/t493/15/557644423/10532/62d3112/5473e62aNdb4251d8.png" />
+                                    </span>
+                                    <span>j****h</span>
+                                    <span class="pull-right assess-date">2017-07-01</span>
+                                </div>
+                                <p slot="content" class="assess-content">
+                                    这台一体机是我在众多电脑中最后选定的一台，首先说显示器的确很大，高清硬屏非常好，无论哪个角度都看的爽，其次是性能方面，还可以，虽然是集成显卡，但玩英雄联盟一点都不卡，FPS在80之间 温度方面 待机在52左右，看电影在62左右，玩游戏就72以上80以下，风扇很大声，听着都心疼，可能是集成显卡的问题吧，开机在10秒左右，很快，这也是固态硬盘的效果，内存方面，120G的确不多，很快就用完，所以自己加个移动硬盘 才勉强过的去，总之这台一体机是还不错的，不亚于联想一体，性价比高，一体机里面有个喇叭，虽然不是很好的，但勉强还能接受，这次购机还算满意，大家可以选这台。
+                                </p>
+                            </Card>
+                        </li>
+                        <li class="assess-item">
+                            <Card>
+                                <div class='assess-title' slot='header'>
+                                    <span class="assess-photo">
+                                        <img src="https://img30.360buyimg.com/mobile/s60x60_jfs/t493/15/557644423/10532/62d3112/5473e62aNdb4251d8.png" />
+                                    </span>
+                                    <span>j****h</span>
+                                    <span class="pull-right assess-date">2017-07-01</span>
+                                </div>
+                                <p slot="content" class="assess-content">
+                                    这台一体机是我在众多电脑中最后选定的一台，首先说显示器的确很大，高清硬屏非常好，无论哪个角度都看的爽，其次是性能方面，还可以，虽然是集成显卡，但玩英雄联盟一点都不卡，FPS在80之间 温度方面 待机在52左右，看电影在62左右，玩游戏就72以上80以下，风扇很大声，听着都心疼，可能是集成显卡的问题吧，开机在10秒左右，很快，这也是固态硬盘的效果，内存方面，120G的确不多，很快就用完，所以自己加个移动硬盘 才勉强过的去，总之这台一体机是还不错的，不亚于联想一体，性价比高，一体机里面有个喇叭，虽然不是很好的，但勉强还能接受，这次购机还算满意，大家可以选这台。
+                                </p>
+                            </Card>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div slot="bottom" class="white-bg cart-concern-btm-fixed">
-                <flexbox gutter="0" class="cart-concern">
-                    <flexbox-item><div>1</div></flexbox-item>
-                    <flexbox-item><div>1</div></flexbox-item>
-                    <flexbox-item class="yellow-color"><div>加入购物车</div></flexbox-item>
-                    <flexbox-item class="red-div"><div>立即购买</div></flexbox-item>
+            <div slot="bottom" class="cart-concern-btm-fixed">
+                <flexbox :gutter="0" class="cart-concern">
+                    <flexbox-item :span="1/6">
+                        <div class="cart-concern-item" style="padding-top: 7px;">
+                            <i class="fa fa-heart-o"></i>
+                            <div>关注</div>
+                            <a href="javascript:void(0)" class="cart-concern-link"></a>
+                        </div>
+                    </flexbox-item>
+                    <flexbox-item :span="1/6">
+                        <div class="cart-concern-item" style="padding-top: 7px;">
+                            <i class="fa fa-shopping-cart"></i>
+                            <div>购物车</div>
+                            <a href="javascript:void(0)" class="cart-concern-link"></a>
+                        </div>
+                    </flexbox-item>
+                    <flexbox-item :span="1/3" class="yellow-color white-text"><div class='add-cart'>加入购物车</div></flexbox-item>
+                    <flexbox-item :span="1/3" class="red-div white-text"><div class='buy-btn'>立即购买</div></flexbox-item>
                 </flexbox>
             </div>
         </view-box>
@@ -62,7 +117,7 @@
 </template>
 
 <script>
-    import {Tab, TabItem, Swiper, SwiperItem, XHeader, ViewBox, Flexbox, FlexboxItem} from 'vux';
+    import {Tab, TabItem, Swiper, SwiperItem, XHeader, ViewBox, Flexbox, FlexboxItem, Card} from 'vux';
     export default{
         components: {
             Tab,
@@ -72,7 +127,8 @@
             XHeader,
             ViewBox,
             Flexbox,
-            FlexboxItem
+            FlexboxItem,
+            Card
         },
         data: function(){
             return {
@@ -105,6 +161,62 @@
 </script>
 
 <style lang="less">
+.assess-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    .assess-item{
+        margin-bottom: 10px;
+    }
+}
+.assess-photo{
+    display: inline-block;
+    position: relative;
+    top: 7px;
+    img{
+        display: block;
+        float: left;
+        width: 27px;
+        height: 27px;
+        border-radius: 50px;
+        margin-right: 5px;
+    }
+}
+.assess-content{
+    font-size: 13px;
+    color: #252525;
+    padding: 15px;
+    line-height: 18px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-align: justify;
+}
+.assess-title{
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    color: #252525;
+    font-size: 12px;
+    .assess-date{
+        color: #848689;
+    }
+}
+.cart-concern-link{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+.cart-concern-item{
+    border-right: 1px solid rgba(0,0,0,.05);
+    position: relative;
+    .fa{
+        font-size: 18px;
+    }
+}
 .goods-part{
     padding: 5px;
 }
@@ -202,20 +314,29 @@
     width: 100%;
     height: 50px;
     overflow: hidden;
+    font-size: 15px;
+    border-top: 1px solid rgba(0,0,0,.05);
+    background-color: rgba(255,255,255,.9);
 }
 .yellow-color{
-    background-color: yellow;
+    background-color: #FF9500;
 }
 .cart-concern{
     height: 100%;
 }
 .vux-flexbox-item{
     height: 100%;
+    height: 50px;
     vertical-align: middle;
-    line-height: 50px;
     text-align: center;
+    font-size: 13px;
     >div{
         height: 100%;
+    }
+    .buy-btn,
+    .add-cart{
+        line-height: 50px;
+        font-size: 14px;
     }
 }
 </style>

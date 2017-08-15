@@ -4,6 +4,7 @@ import Router from 'vue-router'
 const Index = resolve => require(['@/pages/index/index'], resolve);
 const Catalog = resolve => require(['@/pages/catalog/index'], resolve);
 const Product = resolve => require(['@/pages/product/index'], resolve);
+const Login = resolve => require(['@/pages/login/index'], resolve);
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ let router = new Router({
         path: '/product/:id',
         name: 'product',
         component: Product
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login
     }
     ]
 });

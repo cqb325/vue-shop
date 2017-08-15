@@ -11,6 +11,8 @@ const state = {
   inputing: false,
   // 是否横屏
   isLandscape: false,
+  // 用户信息
+  user: null,
 }
 
 const mutations = {

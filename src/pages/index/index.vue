@@ -130,7 +130,7 @@
                     <img slot="icon" src="../../assets/cart.png" class="tabbar-icon">
                     <span slot="label">购物车</span>
                 </tabbar-item>
-                <tabbar-item>
+                <tabbar-item link="/mine">
                     <img slot="icon" src="../../assets/my.png" class="tabbar-icon">
                     <span slot="label">我的</span>
                 </tabbar-item>
