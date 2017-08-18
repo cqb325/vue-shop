@@ -12,6 +12,7 @@
     "babel-polyfill": "^6.23.0",
     "fastclick": "^1.0.6",
     "mint-ui": "^2.2.9",
+    "store": "^2.0.12",
     "vue": "^2.2.2",
     "vue-router": "^2.2.0",
     "vuex": "^2.1.1",

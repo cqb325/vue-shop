@@ -1,19 +1,15 @@
 <template>
     <div style="height: 100%">
-        <div>
-            <x-header style="background-color:#EFEFF4;">
-                <search position="absolute" :auto-fixed="true" ref="search"
-                    v-model="keyword" slot="overwrite-title" @on-submit="doSearch"
-                    @on-cancel="cancleSearch" />
-            </x-header>
-        </div>
+        <search position="absolute" :auto-fixed="true" ref="search"
+            v-model="keyword" slot="overwrite-title" @on-submit="doSearch"
+            @on-cancel="cancleSearch" />
         <div class="list-wrapper" ref="wrapper" :style="{ height: wrapperHeight + 'px', overflow: 'scroll' }">
             <loadmore ref="loadmore" :top-method="reSearch" @top-status-change="handleTopChange"
                 :bottom-method="loadNext" @bottom-status-change="handleBottomChange"
                 :bottom-all-loaded="isAllLoaded">
                 <div>
                     <div class="weui-panel__bd" v-show="list" v-for="item in list" :key="item.id">
-                        <a class="weui-media-box weui-media-box_appmsg" :href="'/product/' + item.id">
+                        <a class="weui-media-box weui-media-box_appmsg" :href="'#/product/' + item.id">
                             <div class="weui-media-box__hd">
                                 <img :src="item.src" alt="" class="weui-media-box__thumb">
                             </div>
@@ -80,7 +76,7 @@ export default {
         }
     },
     mounted: function mounted() {
-        this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top;
+        this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top - 55;
     },
     methods: {
         ...mapActions([

@@ -1,13 +1,41 @@
 <template>
-  <div id="app">
-    <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')" mode="out-in">
-        <router-view></router-view>
-    </transition>
+    <div id="app" style="height: 100%;">
+        <div v-transfer-dom>
+            <loading v-model="isLoading"></loading>
+        </div>
+        <view-box ref="viewBox" body-padding-bottom="55px">
+            <transition v-on:before-leave="beforeLeave" v-on:after-enter="afterEnter" :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')" mode="out-in">
+                <router-view></router-view>
+            </transition>
+            <tabbar slot="bottom" v-show="hasTabbar">
+                <tabbar-item :selected="activeTab == '/'" link='/'>
+                    <img slot="icon" src="./assets/home.png" class="tabbar-icon">
+                    <span slot="label">首页</span>
+                </tabbar-item>
+                <tabbar-item :selected="activeTab == '/catalog'" link='/catalog'>
+                    <img slot="icon" src="./assets/type.png" class="tabbar-icon">
+                    <span slot="label">分类</span>
+                </tabbar-item>
+                <tabbar-item link="">
+                    <img slot="icon" src="./assets/find.png" class="tabbar-icon">
+                    <span slot="label">发现</span>
+                </tabbar-item>
+                <tabbar-item :selected="activeTab == '/cart'" link="/cart">
+                    <img slot="icon" src="./assets/cart.png" class="tabbar-icon">
+                    <span slot="label">购物车</span>
+                </tabbar-item>
+                <tabbar-item :selected="activeTab == '/mine'" link="/mine">
+                    <img slot="icon" src="./assets/my.png" class="tabbar-icon">
+                    <span slot="label">我的</span>
+                </tabbar-item>
+            </tabbar>
+        </view-box>
   </div>
 </template>
 
 <script>
 import store from './store';
+import {Tabbar, TabbarItem, ViewBox, TransferDomDirective as TransferDom, Loading} from 'vux';
 import { mapState } from 'vuex';
 import {
     UPDATE_LANDSCAPE,
@@ -16,11 +44,37 @@ import {
 
 export default {
   name: 'app',
+  directives: {
+      TransferDom
+  },
+  components: {
+      Tabbar,
+      TabbarItem,
+      ViewBox,
+      Loading
+  },
+  methods: {
+      beforeLeave: function(){
+          this.$store.commit("UPDATE_LOADING_STATUS", {isLoading: true});
+      },
+
+      afterEnter: function(){
+          this.$store.commit("UPDATE_LOADING_STATUS", {isLoading: false});
+      }
+  },
   computed: {
       ...mapState({
-          direction: (state) => state.app.direction
+          direction: (state) => state.app.direction,
+          isLoading: (state) => state.app.isLoading,
+          hasTabbar(state) {
+              return !this.$route.meta.hideTab;
+          },
+          activeTab(state) {
+              return this.$route.path;
+          }
       })
   },
+
   created() {
     // 定义常量
     const width = document.body.clientWidth
@@ -61,6 +115,7 @@ export default {
 <style lang="less">
 @import '~vux/src/styles/reset.less';
 @import './assets/css/font-awesome.min.css';
+@import './assets/css/base.less';
 
 html, body {
   height: 100%;

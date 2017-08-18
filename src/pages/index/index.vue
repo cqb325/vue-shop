@@ -3,8 +3,7 @@
         <div v-transfer-dom>
             <actionsheet></actionsheet>
         </div>
-        <view-box ref="viewBox" body-padding-bottom="105px">
-            <search position="absolute" :auto-fixed="true" ref="search" v-model="keyword" slot="header" @on-submit="doSearch"></search>
+        <view-box ref="viewBox">
             <Swiper :list="bannerList" auto loop height='150px'></Swiper>
             <div class="app-links-wrap">
                 <grid :rows="5" class="app-links">
@@ -113,35 +112,13 @@
                     </grid-item>
                 </grid>
             </div>
-            <tabbar slot="bottom">
-                <tabbar-item selected link='/'>
-                    <img slot="icon" src="../../assets/home.png" class="tabbar-icon">
-                    <span slot="label">首页</span>
-                </tabbar-item>
-                <tabbar-item link='/catalog'>
-                    <img slot="icon" src="../../assets/type.png" class="tabbar-icon">
-                    <span slot="label">分类</span>
-                </tabbar-item>
-                <tabbar-item link="">
-                    <img slot="icon" src="../../assets/find.png" class="tabbar-icon">
-                    <span slot="label">发现</span>
-                </tabbar-item>
-                <tabbar-item>
-                    <img slot="icon" src="../../assets/cart.png" class="tabbar-icon">
-                    <span slot="label">购物车</span>
-                </tabbar-item>
-                <tabbar-item link="/mine">
-                    <img slot="icon" src="../../assets/my.png" class="tabbar-icon">
-                    <span slot="label">我的</span>
-                </tabbar-item>
-            </tabbar>
         </view-box>
     </div>
 </template>
 
 <script>
     import { Search, Swiper, Grid, GridItem, Group, Cell, Marquee,
-        MarqueeItem, Tabbar, TabbarItem, Actionsheet, ViewBox,
+        MarqueeItem, Actionsheet, ViewBox,
         TransferDomDirective as TransferDom
     } from 'vux'
     export default {
@@ -157,8 +134,6 @@
             Cell,
             Marquee,
             MarqueeItem,
-            Tabbar,
-            TabbarItem,
             ViewBox,
             Actionsheet
         },

@@ -10,7 +10,8 @@ import store from './store'
 import { Lazyload } from 'mint-ui';
 
 import {
-    UPDATE_DIRECTION
+    UPDATE_DIRECTION,
+    UPDATE_LOADING_STATUS
 } from './store/types';
 
 Vue.use(VueRouter);
@@ -25,7 +26,7 @@ Vue.use(Lazyload);
 //   routes
 // })
 
-FastClick.attach(document.body)
+//FastClick.attach(document.body)
 
 Vue.config.productionTip = false;
 
@@ -36,12 +37,12 @@ let historyCount = history.getItem('count') * 1 || 0
 history.setItem('/', 0)
 
 router.beforeEach(function(to, from, next){
-    console.log(to.path);
+    // store.commit(UPDATE_LOADING_STATUS, {isLoading: true});
     if(to.path === '/mine'){
         if(store.state.app.user){
             next();
         }else{
-            window.location.href = '/login';
+            window.location.href = '#/login?dir=' + encodeURI(encodeURI(to.path));
         }
     }else{
         next();
@@ -74,6 +75,7 @@ router.beforeEach(function (to, from, next) {
 })
 
 router.afterEach(function (to) {
+    // store.commit(UPDATE_LOADING_STATUS, {isLoading: false});
   if (process.env.NODE_ENV === 'production') {
     ga && ga('set', 'page', to.fullPath)
     ga && ga('send', 'pageview')
