@@ -1,5 +1,5 @@
 import {
-    FETCHING,
+    CATALOG_FETCHING,
     SEARCH,
     SEARCH_END,
     SCROLL_TOP_STATUS,
@@ -32,7 +32,7 @@ const mutations = {
         state.isAllLoaded = preload.isAllLoaded;
         state.isFetching = false;
     },
-    [FETCHING] (state, preload) {
+    [CATALOG_FETCHING] (state, preload) {
         state.isFetching = true;
     },
 
@@ -54,7 +54,7 @@ const actions = {
         if(state.isFetching){
             return;
         }
-        commit(FETCHING);
+        commit(CATALOG_FETCHING);
         let ret = await search({
             keyword: state.keyword,
             pageNo: 1
@@ -74,7 +74,7 @@ const actions = {
         if(state.isFetching){
             return;
         }
-        commit(FETCHING);
+        commit(CATALOG_FETCHING);
         let ret = await search({
             keyword: state.keyword,
             pageNo: state.pageNo + 1

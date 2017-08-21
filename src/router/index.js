@@ -9,6 +9,8 @@ const Mine = resolve => require(['@/pages/mine/index'], resolve);
 const Cart = resolve => require(['@/pages/cart/index'], resolve);
 const NewOrder = resolve => require(['@/pages/order/new'], resolve);
 const AddressList = resolve => require(['@/pages/address/index'], resolve);
+const AddressEdit = resolve => require(['@/pages/address/edit'], resolve);
+const AddressNew = resolve => require(['@/pages/address/new'], resolve);
 
 Vue.use(Router)
 
@@ -79,6 +81,18 @@ let router = new Router({
         name: 'address',
         meta: {hideTab: true},
         component: AddressList
+    },
+    {
+        path: '/address/:id',
+        name: 'addressEdit',
+        meta: {hideTab: true},
+        component: AddressEdit
+    },
+    {
+        path: '/add_address',
+        name: 'addressNew',
+        meta: {hideTab: true},
+        component: AddressNew
     }
     ]
 });

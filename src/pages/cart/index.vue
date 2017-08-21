@@ -51,11 +51,6 @@
                 goods: state => state.cart.goods,
             })
         },
-        data: function(){
-            return {
-
-            };
-        },
 
         mounted: function mounted() {
             this.getShopProducts();
@@ -88,7 +83,6 @@
             },
 
             submit: function(){
-                console.log(111);
                 this.cartSettlement();
             }
         }

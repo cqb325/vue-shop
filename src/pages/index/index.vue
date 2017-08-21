@@ -183,7 +183,7 @@
         font-size: 18px;
     }
     .graphic-wz{
-        font-size: 14px;
+        font-size: 12px;
     }
     .graphic-btn{
         font-size: 12px;

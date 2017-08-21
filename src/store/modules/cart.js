@@ -2,7 +2,7 @@ import {
     UPDATE_CART_TOTAL,
     UPDATE_CART_NUMBER,
     UPDATE_CART_ALL_CHECKED,
-    FETCHING,
+    CART_FETCHING,
     UPDATE_CART_GOODS
 } from '../types';
 
@@ -29,7 +29,7 @@ const mutations = {
         state.allChecked = preload.allChecked;
     },
 
-    [FETCHING](state, preload){
+    [CART_FETCHING](state, preload){
         state.isFetching = true;
     },
 
@@ -62,7 +62,7 @@ const actions = {
         if(state.isFetching){
             return ;
         }
-        commit(FETCHING);
+        commit(CART_FETCHING);
         let data = await getCartProducts(ids);
         commit(UPDATE_CART_GOODS, {
             goods: data
@@ -73,7 +73,7 @@ const actions = {
         if(state.isFetching){
             return ;
         }
-        commit(FETCHING);
+        commit(CART_FETCHING);
 
         let ret = await createOrder(data);
         if(ret.success){

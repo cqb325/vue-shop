@@ -5,6 +5,7 @@ import app from './modules/app';
 import catalog from './modules/catalog';
 import product from './modules/product';
 import cart from './modules/cart';
+import address from './modules/address';
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ export default new Vuex.Store({
         app,
         catalog,
         product,
-        cart
+        cart,
+        address
     }
 });
